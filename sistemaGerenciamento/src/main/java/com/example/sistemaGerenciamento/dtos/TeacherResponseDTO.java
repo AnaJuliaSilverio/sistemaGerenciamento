@@ -1,6 +1,6 @@
 package com.example.sistemaGerenciamento.dtos;
 
-import com.example.sistemaGerenciamento.models.Teachers;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseResponseDTO {
+public class TeacherResponseDTO {
     @NotNull
     private Long id;
     @NotBlank
     private String name;
-    @NotBlank
-    private Teachers teachers;
 }
