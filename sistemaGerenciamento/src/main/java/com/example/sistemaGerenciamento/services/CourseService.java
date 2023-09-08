@@ -23,13 +23,13 @@ public class CourseService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public CourseRequestDTO createCourse(CourseResponseDTO courseResponseDTO,Long teacherId){
+    public CourseResponseDTO createCourse(CourseRequestDTO courseRequestDTO,Long teacherId){
       Teachers teachers = teacherRepository.findById(teacherId).orElseThrow(()-> new EntityNotFoundException("Nenhum professor identificado"));
       Courses courses = new Courses();
-      modelMapper.map(courseResponseDTO,courses);
+      modelMapper.map(courseRequestDTO,courses);
       courses.setTeachers(teachers);
       courseRepository.save(courses);
-      return modelMapper.map(courses,CourseRequestDTO.class);
+      return modelMapper.map(courses,CourseResponseDTO.class);
     }
     public List<String> findCoursesWithoutStudents(){
         return courseRepository.findCoursesWithoutStudents();

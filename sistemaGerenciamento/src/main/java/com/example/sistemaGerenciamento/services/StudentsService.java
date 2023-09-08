@@ -18,11 +18,11 @@ public class StudentsService {
     private ModelMapper modelMapper;
 
 
-    public StudentRequestDTO createStudent(StudentResponseDTO studentResponseDTO){
+    public StudentResponseDTO createStudent(StudentRequestDTO studentRequestDTO){
         Students students = new Students();
-        modelMapper.map(studentResponseDTO,students);
+        modelMapper.map(studentRequestDTO,students);
         studentRepository.save(students);
-        return modelMapper.map(students,StudentRequestDTO.class);
+        return modelMapper.map(students,StudentResponseDTO.class);
     }
 
     public List<String> findUnenrolledStudentNames(){

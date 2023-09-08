@@ -17,11 +17,11 @@ public class TeacherService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public TeacherRequestDTO createTeacher(TeacherResponseDTO teacherResponseDTO){
+    public TeacherResponseDTO createTeacher(TeacherRequestDTO teacherRequestDTO){
         Teachers teachers = new Teachers();
-        modelMapper.map(teacherResponseDTO,teachers);
+        modelMapper.map(teacherRequestDTO,teachers);
         teacherRepository.save(teachers);
-        return modelMapper.map(teachers, TeacherRequestDTO.class);
+        return modelMapper.map(teachers, TeacherResponseDTO.class);
     }
     public List<String> findyCoursesByTeacherName(String teacherName){
         return teacherRepository.findCourseNamesByTeacherName(teacherName);

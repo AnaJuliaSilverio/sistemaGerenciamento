@@ -26,19 +26,19 @@ public class RegistrationService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public RegistratioRequestDTO createRegistration(RegistrationResponseDTO registrationResponseDTO,Long studentId,Long courseId){
+    public RegistrationResponseDTO createRegistration(RegistratioRequestDTO registratioRequestDTO,Long studentId,Long courseId){
         Students students = studentRepository.findById(studentId).orElseThrow(()-> new EntityNotFoundException("Nenhum estudante identificado"));
         Courses courses = courseRepository.findById(courseId).orElseThrow(()-> new EntityNotFoundException("Nenhum curso identificado"));
 
         Registration registration = new Registration();
-        modelMapper.map(registrationResponseDTO,registration);
+        modelMapper.map(registratioRequestDTO,registration);
 
         registration.setCourses(courses);
         registration.setStudents(students);
 
         registrationRepository.save(registration);
 
-        return modelMapper.map(registration,RegistratioRequestDTO.class);
+        return modelMapper.map(registration,RegistrationResponseDTO.class);
     }
 
     public List<String> findStudentNamesByCourseName(String courseName){
