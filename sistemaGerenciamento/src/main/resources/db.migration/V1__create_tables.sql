@@ -1,3 +1,14 @@
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    address TEXT NOT NULL
+);
+CREATE TABLE teachers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE courses (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -14,13 +25,4 @@ CREATE TABLE registration (
     CONSTRAINT fk_registration_courses FOREIGN KEY (courses_id) REFERENCES courses(id)
 );
 
-CREATE TABLE students (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    date_of_birth DATE NOT NULL,
-    address TEXT NOT NULL
-);
-CREATE TABLE teachers (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
+
