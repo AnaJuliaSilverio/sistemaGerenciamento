@@ -19,11 +19,11 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping("/{teacherId}")
-    public ResponseEntity<CourseResponseDTO> createCourse(@RequestBody @Valid CourseRequestDTO courseRequestDTO, @Param(value = "teacherId") Long teacherId){
+    public ResponseEntity<CourseResponseDTO> createCourse(@RequestBody @Valid CourseRequestDTO courseRequestDTO, @PathVariable(value = "teacherId") Long teacherId){
         CourseResponseDTO courseResponseDTO = courseService.createCourse(courseRequestDTO,teacherId);
         return ResponseEntity.status(HttpStatus.CREATED).body(courseResponseDTO);
     }
-    @GetMapping("/{withoutStudents}")
+    @GetMapping("/without-students")
     public ResponseEntity<List<String>> findCoursesWithoutStudent(){
         List<String> courses = courseService.findCoursesWithoutStudents();
         return ResponseEntity.ok().body(courses);

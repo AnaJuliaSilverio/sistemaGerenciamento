@@ -19,6 +19,6 @@ public class Courses {
     @Column(nullable = false)
     private String name;
     @ManyToOne
-    @Column(name ="teachers_id",nullable = false)
+    @JoinColumn(name ="teachers_id")
     private Teachers teachers;
 }

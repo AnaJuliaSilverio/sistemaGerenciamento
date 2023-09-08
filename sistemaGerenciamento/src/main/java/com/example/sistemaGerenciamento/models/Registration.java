@@ -18,10 +18,10 @@ public class Registration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @Column(name = "students_id",nullable = false)
+    @JoinColumn(name = "students_id")
     private Students students;
     @OneToOne
-    @Column(name = "courses_id",nullable = false)
+    @JoinColumn(name = "courses_id")
     private Courses courses;
     @Column(name = "registration_date",nullable = false)
     private LocalDate registrationDate;

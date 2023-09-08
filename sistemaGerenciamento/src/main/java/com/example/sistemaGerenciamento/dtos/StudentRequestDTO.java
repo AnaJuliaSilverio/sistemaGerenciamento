@@ -18,8 +18,8 @@ public class StudentRequestDTO {
     @NotBlank
     private String name;
     @NotNull
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
     @NotBlank
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private String address;
 }

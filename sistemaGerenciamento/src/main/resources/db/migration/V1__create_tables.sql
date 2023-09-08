@@ -24,5 +24,3 @@ CREATE TABLE registration (
     CONSTRAINT fk_registration_students FOREIGN KEY (students_id) REFERENCES students(id) ,
     CONSTRAINT fk_registration_courses FOREIGN KEY (courses_id) REFERENCES courses(id)
 );
-
-

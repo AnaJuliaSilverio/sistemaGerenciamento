@@ -24,7 +24,7 @@ public class TeacherContoller {
         return ResponseEntity.status(HttpStatus.CREATED).body(teacherResponseDTO);
     }
     @GetMapping("/{teacherName}")
-    public ResponseEntity<List<String>> findyCoursesByTeacherName(@Param(value = "teacherName")String teacherName){
+    public ResponseEntity<List<String>> findyCoursesByTeacherName(@PathVariable(value = "teacherName")String teacherName){
         List<String> teachers = teacherService.findyCoursesByTeacherName(teacherName);
         return ResponseEntity.ok().body(teachers);
     }
