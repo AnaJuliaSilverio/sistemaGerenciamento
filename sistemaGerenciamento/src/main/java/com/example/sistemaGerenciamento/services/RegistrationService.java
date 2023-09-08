@@ -41,6 +41,10 @@ public class RegistrationService {
         return modelMapper.map(registration,RegistrationResponseDTO.class);
     }
 
+    public List<RegistrationResponseDTO> getAllRegistration(){
+        return registrationRepository.findAll().stream()
+                .map(registration -> modelMapper.map(registration,RegistrationResponseDTO.class)).toList();
+    }
     public List<String> findStudentNamesByCourseName(String courseName){
         return  registrationRepository.findStudentNamesByCourseName(courseName);
     }

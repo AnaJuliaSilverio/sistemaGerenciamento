@@ -23,6 +23,10 @@ public class TeacherService {
         teacherRepository.save(teachers);
         return modelMapper.map(teachers, TeacherResponseDTO.class);
     }
+    public List<TeacherResponseDTO> getAllTeachers(){
+        return teacherRepository.findAll().stream()
+                .map(teachers -> modelMapper.map(teachers,TeacherResponseDTO.class)).toList();
+    }
     public List<String> findyCoursesByTeacherName(String teacherName){
         return teacherRepository.findCourseNamesByTeacherName(teacherName);
     }

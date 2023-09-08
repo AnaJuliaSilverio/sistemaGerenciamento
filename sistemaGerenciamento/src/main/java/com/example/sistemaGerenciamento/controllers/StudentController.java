@@ -32,4 +32,8 @@ public class StudentController {
         List<String> studentsNames = studentsService.findStudentsEnrolledInMultipleCourses();
         return ResponseEntity.ok().body(studentsNames);
     }
+    @GetMapping
+    public ResponseEntity<List<StudentResponseDTO>> getAllStudents(){
+        return ResponseEntity.ok().body(studentsService.getAllStudents());
+    }
 }

@@ -28,5 +28,9 @@ public class TeacherContoller {
         List<String> teachers = teacherService.findyCoursesByTeacherName(teacherName);
         return ResponseEntity.ok().body(teachers);
     }
+    @GetMapping
+    public ResponseEntity<List<TeacherResponseDTO>> getAllTeachers(){
+        return ResponseEntity.ok().body(teacherService.getAllTeachers());
+    }
 
 }

@@ -28,4 +28,8 @@ public class CourseController {
         List<String> courses = courseService.findCoursesWithoutStudents();
         return ResponseEntity.ok().body(courses);
     }
+    @GetMapping
+    public ResponseEntity<List<CourseResponseDTO>> getAllCourses(){
+        return ResponseEntity.ok().body(courseService.getAllCourses());
+    }
 }

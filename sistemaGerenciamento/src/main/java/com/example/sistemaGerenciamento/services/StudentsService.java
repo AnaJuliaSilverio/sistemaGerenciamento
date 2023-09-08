@@ -24,6 +24,10 @@ public class StudentsService {
         studentRepository.save(students);
         return modelMapper.map(students,StudentResponseDTO.class);
     }
+    public List<StudentResponseDTO> getAllStudents(){
+        return studentRepository.findAll().stream()
+                .map(students -> modelMapper.map(students,StudentResponseDTO.class)).toList();
+    }
 
     public List<String> findUnenrolledStudentNames(){
         return studentRepository.findUnenrolledStudentNames();

@@ -29,5 +29,9 @@ public class RegistrationController {
         List<String> studentNames = registrationService.findStudentNamesByCourseName(courseName);
         return ResponseEntity.ok().body(studentNames);
     }
+    @GetMapping
+    public ResponseEntity<List<RegistrationResponseDTO>> getAllRegistration(){
+        return ResponseEntity.ok().body(registrationService.getAllRegistration());
+    }
 
 }

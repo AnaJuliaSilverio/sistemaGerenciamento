@@ -31,6 +31,10 @@ public class CourseService {
       courseRepository.save(courses);
       return modelMapper.map(courses,CourseResponseDTO.class);
     }
+    public List<CourseResponseDTO> getAllCourses(){
+        return courseRepository.findAll().stream()
+                .map(courses -> modelMapper.map(courses,CourseResponseDTO.class)).toList();
+    }
     public List<String> findCoursesWithoutStudents(){
         return courseRepository.findCoursesWithoutStudents();
     }
