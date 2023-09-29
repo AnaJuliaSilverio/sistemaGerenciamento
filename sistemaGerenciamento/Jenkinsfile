@@ -1,17 +1,16 @@
 pipeline {
     agent any
-    environment{
-    PATH = "C:/Program Files/apache-maven-3.9.4/bin:$PATH"
+    environment {
+        PATH = "C:/Program Files/apache-maven-3.9.4/bin:$PATH"
     }
     stages {
-        stage('Build') {
-            steps{
-                  dir('sistemaGerenciamento'){
-                    bat "cd"
-                  }
-            }
+        stage('Entrar no diretorio') {
             steps {
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                dir('sistemaGerenciamento') {
+                    script {
+                        bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                    }
+                }
             }
         }
     }
