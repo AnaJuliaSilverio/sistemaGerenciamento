@@ -1,10 +1,12 @@
 pipeline {
     agent any
-
+    enviroment{
+    PATH = "C:/Program Files/apache-maven-3.9.4/bin:$PATH"
+    }
     stages {
         stage('Build') {
             steps {
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
     }
