@@ -4,6 +4,11 @@ pipeline {
     PATH = "C:/Program Files/apache-maven-3.9.4/bin:$PATH"
     }
     stages {
+        stage('Entrar no diretorio'){
+            steps{
+                dir('sistemaGerenciamento')
+            }
+        }
         stage('Build') {
             steps {
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
