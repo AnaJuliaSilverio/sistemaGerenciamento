@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('Entrar no diretorio'){
             steps{
-                dir('sistemaGerenciamento')
+                dir('sistemaGerenciamento'){
+                    sh "pwd"
+                }
             }
         }
         stage('Build') {
